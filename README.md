@@ -5,7 +5,7 @@
 
 ## Prerequisites
 *	Shimmer Sensors: All Shimmer Sensors that you possibly want to use in the program must have been connected to the client/laptop before you run the program
-  *	Connect via Bluetooth upon App usage: 
+  >	Connect via Bluetooth upon App usage: 
     -	Open the Bluetooth settings on your device and switch on Bluetooth
     -	Turn on the Shimmer unit by toggling the switch on its side
     -	The Shimmer unit’s upper LED light shall now be showing the “RTC not set” pattern (see LED patterns in the Shimmer User Manual)
