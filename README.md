@@ -5,22 +5,22 @@
 
 ## Prerequisites
 *	Shimmer Sensors: All Shimmer Sensors that you possibly want to use in the program must have been connected to the client/laptop before you run the program
-###	Connect via Bluetooth upon App usage: 
--	Open the Bluetooth settings on your device and switch on Bluetooth
--	Turn on the Shimmer unit by toggling the switch on its side
--	The Shimmer unit’s upper LED light shall now be showing the “RTC not set” pattern (see LED patterns in the Shimmer User Manual)
--	Now add a new device in the Bluetooth settings of your client
--	The Shimmer unit will be displayed as “Shimmer3-[Radio ID]” (you can find each Shimmer’s Radio ID on the unit’s backside)
--	Select the Shimmer and establish connection using the code “1234”
--	The Shimmer will shortly connect and then disconnect again from the client
-###	Find out Shimmer unit’s full Bluetooth Address:
--	Open the Device Manager on your client
--	In the “Bluetooth” section, identify the Shimmer units, right click on each one and open its properties
--	For each Shimmer unit switch to the “Details” tab and find the value of “Association Endpoint Address”
--	Write down these values somewhere where you can access them fast while running the program
-###	Platform Support:
--	This application has only been tested on Windows yet
--	However, the project uses the .NET 8 SDK and should therefore provide cross-platform support
+  *	Connect via Bluetooth upon App usage: 
+    -	Open the Bluetooth settings on your device and switch on Bluetooth
+    -	Turn on the Shimmer unit by toggling the switch on its side
+    -	The Shimmer unit’s upper LED light shall now be showing the “RTC not set” pattern (see LED patterns in the Shimmer User Manual)
+    -	Now add a new device in the Bluetooth settings of your client
+    -	The Shimmer unit will be displayed as “Shimmer3-[Radio ID]” (you can find each Shimmer’s Radio ID on the unit’s backside)
+    -	Select the Shimmer and establish connection using the code “1234”
+    -	The Shimmer will shortly connect and then disconnect again from the client
+*	Find out Shimmer unit’s full Bluetooth Address:
+  -	Open the Device Manager on your client
+  -	In the “Bluetooth” section, identify the Shimmer units, right click on each one and open its properties
+  -	For each Shimmer unit switch to the “Details” tab and find the value of “Association Endpoint Address”
+  -	Write down these values somewhere where you can access them fast while running the program
+* Platform Support:
+  -	This application has only been tested on Windows yet
+  -	However, the project uses the .NET 8 SDK and should therefore provide cross-platform support
 
 ## Run Program
 *	Open the project TestAPI in your editor of choice
