@@ -1,0 +1,19 @@
+<Window x:Class="TestAPI.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Please Enter Shimmer Address" Height="200" Width="300">
+    
+    <StackPanel Margin="20">
+        <!-- TextBox for user input -->
+        <TextBlock x:Name="sensorToConnect" 
+            Text="" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            FontSize="16" 
+            TextWrapping="Wrap"/>
+        <TextBox x:Name="inputTextBox" Width="200" Height="30" Margin="10"/>
+        
+        <!-- Button to submit input and close the window -->
+        <Button Content="Submit" Width="80" Height="30" Click="OnClick_SubmitBTAddress"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,224 @@
+﻿<Window x:Class="TestAPI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestAPI"
+        mc:Ignorable="d"
+        Title="MainWindow">
+
+
+    <Window.Resources>
+
+        <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+
+
+        <!-- Define the item template for individual ComboBox items -->
+        <DataTemplate x:Key="ComboBoxItemTemplate">
+            <CheckBox                         
+                Content="{Binding Name}" 
+                IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                Checked="CheckBox_Checked"
+                Unchecked="CheckBox_Unchecked"
+                Style="{StaticResource CheckBoxStyle}" />
+        </DataTemplate>
+
+
+        <!-- Define the style for the ComboBox -->
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="ItemTemplate" Value="{StaticResource ComboBoxItemTemplate}" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+
+        <Style x:Key="SubmitButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+
+        <Style x:Key="textConnectingStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="250" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="Red" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <Style x:Key="textConnectingUnits" TargetType="TextBlock">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="DarkGray" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="selectedUnits" TargetType="TextBlock">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Foreground" Value="DarkRed" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+
+        <Style x:Key="StreamLogButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10,0,10,0" />
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#909497"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Background" Value="#ff5722"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>  
+            <ColumnDefinition Width="*" />  
+            <ColumnDefinition Width="*" />    
+        </Grid.ColumnDefinitions>  
+        <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0">
+                    <!-- ComboBox -->
+                <ComboBox
+                    x:Name="sensorSelection"
+                    ItemsSource="{Binding SensorInformation}"
+                    IsEditable="True"
+                    Text="{Binding ContentText, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource ComboBoxStyle}" />
+                
+                <!-- Button -->
+                <Button
+                    x:Name="submitButtonSensors"
+                    Click="OnClick_SubmitSensors"
+                    ClickMode="Press"
+                    Content="Submit"
+                    Style="{StaticResource SubmitButtonStyle}" />
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center">
+                <TabControl x:Name="tabControl" Height="300" Width="400">
+                </TabControl>
+                <Button
+                    x:Name="submitButtonSignals"
+                    Margin="0,10,0,0"
+                    Click="OnClick_SubmitSignals"
+                    ClickMode="Press"
+                    Content="Submit"
+                    Style="{StaticResource SubmitButtonStyle}" />
+                <TextBlock x:Name="textConnecting"
+                    Visibility="Hidden"
+                    Text="Please Wait while Connecting to Devices..."
+                    Style="{StaticResource textConnectingStyle}"/>
+                <TextBlock x:Name="textConnectingShimmerECG"
+                    Visibility="Collapsed"
+                    Text="Shimmer ECG Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+                <TextBlock x:Name="textConnectingShimmerEMG"
+                    Visibility="Collapsed"
+                    Text="Shimmer EMG Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+                <TextBlock x:Name="textConnectingShimmerIMU"
+                    Visibility="Collapsed"
+                    Text="Shimmer IMU Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+                <TextBlock x:Name="textConnectingShimmerGSR"
+                    Visibility="Collapsed"
+                    Text="Shimmer GSR Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+                <TextBlock x:Name="textConnectingMuse"
+                    Visibility="Collapsed"
+                    Text="Muse Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+                <TextBlock x:Name="textConnectingEmbracePlus"
+                    Visibility="Collapsed"
+                    Text="Embrace Plus Connecting"
+                    Style="{StaticResource textConnectingUnits}" />
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="dataColumn" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <StackPanel x:Name="dataShimmerECG" Visibility="Collapsed">
+                    <TextBlock
+                        Text="Shimmer ECG"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+                <StackPanel x:Name="dataShimmerEMG" Visibility="Collapsed">
+                    <TextBlock 
+                        Text="Shimmer EMG"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+                <StackPanel x:Name="dataShimmerIMU" Visibility="Collapsed">
+                    <TextBlock
+                        Text="Shimmer IMU"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+                <StackPanel x:Name="dataShimmerGSR" Visibility="Collapsed">
+                    <TextBlock
+                        Text="Shimmer GSR"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+                <StackPanel x:Name="dataMuse" Visibility="Collapsed">
+                    <TextBlock
+                        Text="Muse"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+                <StackPanel x:Name="dataEmbracePlus" Visibility="Collapsed">
+                    <TextBlock 
+                        Text="Embrace Plus"
+                        Style="{StaticResource selectedUnits}" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0">
+                <Button                     
+                    x:Name="startStreamingAndLoggingButton"
+                    Visibility="Hidden"
+                    IsEnabled="{Binding EnabledStartButton}"
+                    Click="OnClick_StartStreamingAndLogging"
+                    ClickMode="Press"
+                    Content="Start Streaming&amp;Log"
+                    Style="{StaticResource StreamLogButtonStyle}" />
+                <Button                     
+                    x:Name="stopStreamingAndLoggingButton"
+                    Visibility="Hidden"
+                    IsEnabled="{Binding EnabledStopButton}"
+                    Click="OnClick_StopStreamingAndLogging"
+                    ClickMode="Press"
+                    Content="Stop Streaming&amp;Log"
+                    Style="{StaticResource StreamLogButtonStyle}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+
+
+</Window>
