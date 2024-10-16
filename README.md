@@ -23,7 +23,7 @@
   -	However, the project uses the .NET 8 SDK and should therefore provide cross-platform support
 
 ## Run Program
-*	Open the project TestAPI in your editor of choice
+*	navigate to the TestAPI directory in your terminal
 *	Run the program by executing the code “dotnet run” in the open project
 
 ## Guide through Program
