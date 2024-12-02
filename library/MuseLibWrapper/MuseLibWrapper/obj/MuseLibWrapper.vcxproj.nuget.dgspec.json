@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ganni\\OneDrive\\Dokumente\\Rise_Praktika\\PROJECT\\library\\MuseLibWrapper_\\MuseLibWrapper\\MuseLibWrapper.vcxproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ganni\\OneDrive\\Dokumente\\Rise_Praktika\\PROJECT\\library\\MuseLibWrapper_\\MuseLibWrapper\\MuseLibWrapper.vcxproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ganni\\OneDrive\\Dokumente\\Rise_Praktika\\PROJECT\\library\\MuseLibWrapper_\\MuseLibWrapper\\MuseLibWrapper.vcxproj",
+        "projectName": "MuseLibWrapper",
+        "projectPath": "C:\\Users\\ganni\\OneDrive\\Dokumente\\Rise_Praktika\\PROJECT\\library\\MuseLibWrapper_\\MuseLibWrapper\\MuseLibWrapper.vcxproj",
+        "packagesPath": "C:\\Users\\ganni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ganni\\OneDrive\\Dokumente\\Rise_Praktika\\PROJECT\\library\\MuseLibWrapper_\\MuseLibWrapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ganni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "secondaryFramework": "native",
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.26100.54, 10.0.26100.54]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
