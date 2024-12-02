@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+	<Filter Include="lib-muse">
+	  <UniqueIdentifier>{55d6ebf6-4aae-458d-9b82-1810c1d6fc43}</UniqueIdentifier>
+      <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\debug">
+	  <UniqueIdentifier>{3e9cf8bb-e04f-4271-9892-09ad6d518f5f}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\debug\Win32">
+	  <UniqueIdentifier>{249a2678-0517-449f-ba0e-defa362aa451}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\debug\x64">
+	  <UniqueIdentifier>{23f65711-c304-43d4-aeb2-f45470f498b7}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\release">
+	  <UniqueIdentifier>{1753e7ec-0a7c-4a79-95e0-756136c13b4d}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\release\Win32">
+	  <UniqueIdentifier>{744a7a97-f36b-4461-a9cb-ea655716740c}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="lib-muse\release\x64">
+	  <UniqueIdentifier>{b7930b03-bbab-4ce9-9e66-e30f65487c6d}</UniqueIdentifier>
+	  <Extensions>dll;lib</Extensions>
+	</Filter>
+
+	<Filter Include="include-muse">
+	  <UniqueIdentifier>{d9e42de8-4801-4598-ad20-cdc21c3adc0d}</UniqueIdentifier>
+	  <Extensions>h</Extensions>
+	</Filter>
+
+	<Filter Include="include-muse\api">
+	  <UniqueIdentifier>{e8c1fb35-da89-42fa-8429-09daeb9deb1}</UniqueIdentifier>
+	  <Extensions>h</Extensions>
+	</Filter>
+	 
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MuseManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MuseLibWrapper.rc">
+      <Filter>Ressourcendateien</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MuseManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
